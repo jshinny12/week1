@@ -28,7 +28,7 @@ describe("HelloWorld", function () {
     let verifier;
 
     beforeEach(async function () {
-        Verifier = await ethers.getContractFactory("HelloWorldVerifier");
+        Verifier = await ethers.getContractFactory("contracts/HelloWorldVerifier.sol:HelloWorldVerifier");
         verifier = await Verifier.deploy();
         await verifier.deployed();
     });
@@ -65,7 +65,9 @@ describe("HelloWorld", function () {
 describe("Multiplier3 with Groth16", function () {
 
     beforeEach(async function () {
-        //[assignment] insert your script here
+        Verifier = await ethers.getContractFactory("contracts/Multiplier3Verifier.sol:HelloWorldVerifier");
+        verifier = await Verifier.deploy();
+        await verifier.deployed();
     });
 
     it("Should return true for correct proof", async function () {
@@ -80,7 +82,9 @@ describe("Multiplier3 with Groth16", function () {
 describe("Multiplier3 with PLONK", function () {
 
     beforeEach(async function () {
-        //[assignment] insert your script here
+        Verifier = await ethers.getContractFactory("contracts/_plonk_Multiplier3Verifier.sol:HelloWorldVerifier");
+        verifier = await Verifier.deploy();
+        await verifier.deployed();
     });
 
     it("Should return true for correct proof", async function () {
